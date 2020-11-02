@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <img src="images/men.png" alt="" class="menu_img" id="open" onclick="openNav()">
+    <div class="center_space">
+        <div class="menu_content">
+            <input type="text" name="" id="search_filter" onkeyup="searchFunction()" placeholder="search anything...">
+            <ul id="unorder">
+                <li><a href="">HTML</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">JAVA SCRIPT</a></li>
+                <li><a href="">JQUERY</a></li>
+                <li><a href="">BOOTSTRAP</a></li>
+                <li><a href="">PHP</a></li>
+                <li><a href="">JAVA</a></li>
+                <li><a href="">PYTHON</a></li>
+                <li><a href="">NODE JS</a></li>
+                <li><a href="">KOTLIN</a></li>
+                <li><a href="">SWIFT</a></li>
+            </ul>
+        </div>
+        <div class="menu_content2" id="sideNav">
+            <button onclick="closeNav()" class="close" >&times;</button>
+            <input type="text" name="" id="search_filter" onkeyup="searchFunction()" placeholder="search anything...">
+            <ul id="unorder">
+                <li><a href="">HTML</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">JAVA SCRIPT</a></li>
+                <li><a href="">JQUERY</a></li>
+                <li><a href="">BOOTSTRAP</a></li>
+                <li><a href="">PHP</a></li>
+                <li><a href="">JAVA</a></li>
+                <li><a href="">PYTHON</a></li>
+                <li><a href="">NODE JS</a></li>
+                <li><a href="">KOTLIN</a></li>
+                <li><a href="">SWIFT</a></li>
+            </ul>
+        </div>
+        <div class="img_room">
+            <h3>search menu bar</h3>
+            <img src="images/state.jpg" alt="">
+            <button>github</button>
+            <p>excellent code with aj</p>
+        </div>
+    </div>
+    <script>
+        const sideNav  = document.getElementById('sideNav');
+        function openNav() {
+            sideNav.style.width = "100%";
+        }
+        function closeNav() {
+            sideNav.style.width = "0%";
+        }
+
+        function searchFunction() {
+            const search_query  = document.getElementById('search_filter').value.toUpperCase();
+            const ul = document.getElementById('unorder');
+            const li = document.getElementsByTagName('li');
+            for (let index = 0; index < li.length; index++) {
+                const element = li[index].querySelector('a');
+                if(element.innerHTML.toUpperCase().indexOf(search_query) > -1){
+                    li[index].style.display = "";
+                }else{
+                    li[index].style.display = "none";
+                }
+                
+            }
+        }
+        
+    </script>
+</body>
+</html>
